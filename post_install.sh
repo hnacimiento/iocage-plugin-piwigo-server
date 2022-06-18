@@ -12,7 +12,7 @@ service mysql-server start 2>/dev/null
 # Create user 'piwigo'
 pw user add -n piwigo -s /sbin/nologin -c "Piwigo"
 # Copy a base MySQL configuration to use
-cp /usr/local/etc/mysql/my-small.cnf /usr/local/etc/mysql/my.cnf
+#cp /usr/local/etc/mysql/my-small.cnf /usr/local/etc/mysql/my.cnf
 # Configure the default PHP settings
 cp /usr/local/etc/php.ini-production /usr/local/etc/php.ini
 
@@ -23,7 +23,7 @@ sed -i '' 's/.*post_max_size = .*/post_max_size = 100M/' /usr/local/etc/php.ini
 sed -i '' 's/.*upload_max_filesize = .*/upload_max_filesize=100M/' /usr/local/etc/php.ini
 # recommended value of 512MB for php memory limit (avoid warning)
 sed -i '' 's/.*memory_limit = .*/memory_limit = 512M/' /usr/local/etc/php.ini
-sed -i '' 's/.*;date.timezone =.*/date.timezone = "America\/Argentina\/Buenos_Aires"/' /usr/local/etc/php.ini
+sed -i '' 's/.*;date.timezone =.*/date.timezone = "Europe\/London"/' /usr/local/etc/php.ini
 
 # Create a configuration directory to make managing individual server blocks easier
 mkdir /usr/local/etc/nginx/conf.d
