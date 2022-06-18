@@ -17,7 +17,6 @@
         "php74-exif",
         "php74-filter",
         "php74-gd",
-        "php74-hash",
         "php74-mbstring",
         "php74-mysqli",
         "php74-json",
