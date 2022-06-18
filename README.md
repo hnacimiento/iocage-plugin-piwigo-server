@@ -3,7 +3,7 @@
 This is iocage plugin to create Piwigo, an open source photo gallery software for the web. Designed for organisations, teams and individuals.
 More details at http://piwigo.org
 
-*I have tested this plugin couple of times on my TrueNAS 12.2 as a **12.2-RELEASE** and **11.4-RELEASE**, all seems to work well.*
+*I have tested this plugin couple of times on my TrueNAS 13.0 as a **13.0-RELEASE** and **12.0-U8.1**, all seems to work well.*
 
 ![Piwigo Installation Successful](https://i.imgur.com/p53XnmOl.png)
 
@@ -17,7 +17,7 @@ Tip 2. Please set your own date/time location in PHP.INI, as for this installati
 <h6> PHP
 
 ```
-    date.timezone = "Europe/London"
+    date.timezone = "America/Argentina/Buenos_Aires"
     max_execution_time = 300
     max_input_time = 300
     post_max_size = 100M
