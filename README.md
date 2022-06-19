@@ -45,4 +45,4 @@ Tip 2. Please set your own date/time location in PHP.INI, as for this installati
 
 ![Piwigo Gallery View - Theme Modus](https://i.imgur.com/1QnmoeQ.png)
 
-![Piwigo Dashboard View](https://i.imgur.com/DQTGfjT.png)
+![Piwigo Dashboard View](https://i.imgur.com/eXVPk13.png)
