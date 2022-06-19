@@ -9,6 +9,7 @@
         "dhcp": 1
     },
     "pkgs": [
+        "curl",
         "ffmpeg",
         "ImageMagick7-nox11",
         "nginx",
