@@ -78,7 +78,7 @@ fi
 
 # Download Piwigo lastet version and unzip
 cd /usr/local/www
-curl -o piwigo.zip "http://piwigo.org/download/dlcounter.php?code=latest" || exit -1
+curl -o piwigo.zip "http://piwigo.org/download/dlcounter.php?code=latest"
 unzip piwigo.zip && rm -f piwigo.zip
 
 # Change the ownership of the whole Piwigo directory
