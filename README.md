@@ -5,7 +5,7 @@ More details at http://piwigo.org
 
 *I have tested this plugin couple of times on my TrueNAS 13.0 as a **13.0-RELEASE** and **12.0-U8.1**, all seems to work well.*
 
-![Piwigo Installation Successful](https://i.imgur.com/p53XnmOl.png)
+![Piwigo Installation Successful](https://i.imgur.com/iElp8s3.png)
 
 Tip 1. Please remember to read info in **TrueNAS / Plugins / Piwigo / POST INSTALL NOTES** - to access info with DB user and DB password.
 Piwigo first installation page will set Host: as localhost, usually this needs to be changed to 127.0.0.1
@@ -43,6 +43,6 @@ Tip 2. Please set your own date/time location in PHP.INI, as for this installati
 
 <h2> <h2>Gallery View
 
-![Piwigo Gallery View - Theme Modus](https://i.imgur.com/OfVd8fUl.jpg)
+![Piwigo Gallery View - Theme Modus](https://i.imgur.com/1QnmoeQ.png)
 
-![Piwigo Dashboard View](https://i.imgur.com/hPlxgwbl.jpg)
+![Piwigo Dashboard View](https://i.imgur.com/DQTGfjT.png)
