@@ -12,7 +12,7 @@ service mysql-server start 2>/dev/null
 # Create user 'piwigo'
 pw user add -n piwigo -s /sbin/nologin -c "Piwigo"
 # Copy a base MySQL configuration to use
-#cp /usr/local/etc/mysql/my-small.cnf /usr/local/etc/mysql/my.cnf
+# cp /usr/local/etc/mysql/my-small.cnf /usr/local/etc/mysql/my.cnf
 # Configure the default PHP settings
 cp /usr/local/etc/php.ini-production /usr/local/etc/php.ini
 
@@ -57,9 +57,6 @@ CREATE USER '${USER}'@'localhost' IDENTIFIED BY '${PASS}';
 GRANT ALL PRIVILEGES ON ${DB}.* TO '${USER}'@'localhost';
 FLUSH PRIVILEGES;
 EOF
-# Make the default log directory
-mkdir /var/log/zm
-chown www:www /var/log/zm
 
 else
 
@@ -79,22 +76,27 @@ FLUSH PRIVILEGES;
 EOF
 fi
 
-# Download Piwigo version 12.x from GitHub
+# Download Piwigo lastet version and unzip
 cd /usr/local/www
-git clone -b 12.x https://github.com/Piwigo/Piwigo.git
-# Create Piwigo data directory with permission
-mkdir /usr/local/www/Piwigo/_data
-chmod -R 777 /usr/local/www/Piwigo/_data
-# Change the ownership of the whole Piwigo directory
-chown -R piwigo:www /usr/local/www/Piwigo
+curl -o piwigo.zip "http://piwigo.org/download/dlcounter.php?code=latest" || exit -1
+unzip piwigo.zip && rm -f piwigo.zip
 
-#restart the services to make sure we have pick up the new permission
+# Change the ownership of the whole Piwigo directory
+chown -R piwigo:www /usr/local/www/piwigo
+
+# Completing parameters for the installation wizard
+sed -i -e "/_POST\['dbhost'\] : /s/'localhost'/'127.0.0.1'/" /usr/local/www/piwigo/install.php
+sed -i -e "/_POST\['dbuser'\] : /s/''/'$USER'/" /usr/local/www/piwigo/install.php
+sed -i -e "/_POST\['dbpasswd'\] : /s/''/'$PASS'/" /usr/local/www/piwigo/install.php
+sed -i -e "/_POST\['dbname'\] : /s/''/'$DB'/" /usr/local/www/piwigo/install.php
+
+# Restart the services to make sure we have pick up the new permission
 service php-fpm restart 2>/dev/null
-#nginx restarts to fast while php is not fully started yet
+# nginx restarts to fast while php is not fully started yet
 sleep 5
 service nginx restart 2>/dev/null
 
-# Add plugin detals to info file available in TrueNAS Plugin Additional Info
+# Add plugin details to info file available in TrueNAS Plugin Additional Info
 echo "Host: 127.0.0.1" > /root/PLUGIN_INFO
 echo "Database User: $USER" >> /root/PLUGIN_INFO
 echo "Database Password: $PASS" >> /root/PLUGIN_INFO

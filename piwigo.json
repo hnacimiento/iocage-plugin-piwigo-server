@@ -9,10 +9,11 @@
         "dhcp": 1
     },
     "pkgs": [
+        "ffmpeg",
         "ImageMagick7-nox11",
-        "git",
         "nginx",
         "mariadb106-server",
+        "p5-Image-ExifTool",
         "php74",
         "php74-exif",
         "php74-filter",
