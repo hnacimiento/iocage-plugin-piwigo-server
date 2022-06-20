@@ -87,8 +87,11 @@ chown -R piwigo:www /usr/local/www/piwigo
 # Completing parameters for the installation wizard
 sed -i -e "/_POST\['dbhost'\] : /s/'localhost'/'127.0.0.1'/" /usr/local/www/piwigo/install.php
 sed -i -e "/_POST\['dbuser'\] : /s/''/'$USER'/" /usr/local/www/piwigo/install.php
-sed -i -e "/_POST\['dbpasswd'\] : /s/''/'$PASS'/" /usr/local/www/piwigo/install.php
 sed -i -e "/_POST\['dbname'\] : /s/''/'$DB'/" /usr/local/www/piwigo/install.php
+sed -i -e "/\['user password given by your host provider'\] =/s/'user password supplied by your host provider'/'user password supplied by <b>\/root\/PLUGIN_INFO<\/b>'/" /usr/local/www/piwigo/language/en_GB/install.lang.php
+sed -i -e "/\['user password given by your host provider'\] =/s/'user password supplied by your host provider'/'user password supplied by <b>\/root\/PLUGIN_INFO<\/b>'/" /usr/local/www/piwigo/language/en_UK/install.lang.php
+sed -i -e "/\['user password given by your host provider'\] =/s/'El proporcionado por su alojador web'/'El proporcionado en <b>\/root\/PLUGIN_INFO<\/b>'/" /usr/local/www/piwigo/language/es_ES/install.lang.php
+sed -i -e "/\['user password given by your host provider'\] =/s/'senha de usuário fornecida pelo seu provedor de hospedagem'/'senha de usuário fornecida em <b>\/root\/PLUGIN_INFO<\/b>'/" /usr/local/www/piwigo/language/pt_BR/install.lang.php
 
 # Restart the services to make sure we have pick up the new permission
 service php-fpm restart 2>/dev/null
