@@ -1,5 +1,5 @@
 {
-    "name": "Piwigo-Server",
+    "name": "Piwigo Server",
     "plugin_schema": "2",
     "release": "12.3-RELEASE",
     "artifact": "https://github.com/hnacimiento/iocage-plugin-piwigo-server.git",
