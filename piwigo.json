@@ -11,8 +11,12 @@
     "pkgs": [
         "curl",
         "ffmpeg",
+        "gstreamer1-libav",
+        "gstreamer1-plugins-x264",
+        "gstreamer1-plugins-x265",
         "ImageMagick7-nox11",
         "nginx",
+        "mediainfo",
         "mariadb106-server",
         "p5-Image-ExifTool",
         "php74",
